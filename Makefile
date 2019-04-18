@@ -11,8 +11,10 @@ SQL = src/sql_commands.c
 execute: $(EXE)
 	open $(EXE)
 
+
 $(EXE): $(OBJMAIN) $(OBJUSER) $(OBJSQL)
-	gcc $(OBJMAIN) $(OBJUSER) $(OBJSQL) -o $(EXE)
+	gcc -std=c99 $(OBJMAIN) $(OBJUSER) $(OBJSQL) bin/sqlite3.o -o $(EXE) -lsqlite3
+
 
 $(OBJMAIN): $(MAIN)
 	gcc -c -o $(OBJMAIN) $(MAIN)
@@ -23,8 +25,8 @@ $(OBJUSER): $(USER)
 $(OBJSQL): $(SQL)
 	gcc -c -o $(OBJSQL) $(SQL)
 
-removeBin:
-	rm -f *.o
+bin/sqlite3.o: src/sqlite3.c
+	gcc -std=c99 -c -MD src/sqlite3.c -o bin/sqlite3.o
 
-removeBuild:
-	rm -f /build/program
+clean:
+	rm -rf /build/program bin/*.o
