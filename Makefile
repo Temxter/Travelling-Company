@@ -15,6 +15,8 @@ execute: $(EXE)
 $(EXE): $(OBJMAIN) $(OBJUSER) $(OBJSQL)
 	gcc -std=c99 $(OBJMAIN) $(OBJUSER) $(OBJSQL) bin/sqlite3.o -o $(EXE) -lsqlite3
 
+Directories:
+	mkdir -p bin build
 
 $(OBJMAIN): $(MAIN)
 	gcc -c -o $(OBJMAIN) $(MAIN)
