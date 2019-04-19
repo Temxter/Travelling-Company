@@ -10,8 +10,8 @@ SQL = src/SQL_commands.c
 SQLITE3 = src/sqlite3.c
 OBJSQLITE3 = bin/sqlite3.o
 
-execute: $(EXE)
-	open $(EXE)
+#execute: $(EXE)
+#	open $(EXE)
 
 
 $(EXE): $(OBJMAIN) $(OBJUSER) $(OBJSQL) $(OBJSQLITE3) 
