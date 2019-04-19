@@ -12,7 +12,7 @@ execute: $(EXE)
 	open $(EXE)
 
 
-$(EXE): $(OBJMAIN) $(OBJUSER) $(OBJSQL)
+$(EXE): $(OBJMAIN) $(OBJUSER) $(OBJSQL) bin/sqlite3.o
 	gcc -std=c99 $(OBJMAIN) $(OBJUSER) $(OBJSQL) bin/sqlite3.o -o $(EXE) -lsqlite3
 
 Directories:
@@ -28,7 +28,7 @@ $(OBJSQL): $(SQL)
 	gcc -c -o $(OBJSQL) $(SQL)
 
 bin/sqlite3.o: src/sqlite3.c
-	gcc -std=c99 -c -MD src/sqlite3.c -o bin/sqlite3.o
+	gcc -c -o bin/sqlite3.o src/sqlite3.c
 
 clean:
 	rm -rf /build/program bin/*.o
