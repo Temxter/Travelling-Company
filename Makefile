@@ -7,28 +7,30 @@ OBJSQL = bin/sql_commands.o
 MAIN = src/main.c
 USER = src/user.c
 SQL = src/sql_commands.c
+SQLITE3 = src/sqlite3.c
+OBJSQLITE3 = bin/sqlite3.o
 
-execute: $(EXE)
-	open $(EXE)
+#execute: $(EXE)
+#	open $(EXE)
 
 
-$(EXE): $(OBJMAIN) $(OBJUSER) $(OBJSQL) bin/sqlite3.o
-	gcc -std=c99 $(OBJMAIN) $(OBJUSER) $(OBJSQL) bin/sqlite3.o -o $(EXE) -lsqlite3
+$(EXE): $(OBJMAIN) $(OBJUSER) $(OBJSQL) $(OBJSQLITE3) 
+	gcc -o $(EXE) $(OBJMAIN) $(OBJUSER) $(OBJSQL) $(OBJSQLITE3) 
 
 Directories:
 	mkdir -p bin build
 
 $(OBJMAIN): $(MAIN)
-	gcc -c -o $(OBJMAIN) $(MAIN)
+	gcc -o $(OBJMAIN) -c $(MAIN)
 
 $(OBJUSER): $(USER)
-	gcc -c -o $(OBJUSER) $(USER)
+	gcc -o $(OBJUSER) -c $(USER)
 
 $(OBJSQL): $(SQL)
-	gcc -c -o $(OBJSQL) $(SQL)
+	gcc -o $(OBJSQL) -c $(SQL)
 
-bin/sqlite3.o: src/sqlite3.c
-	gcc -c -o bin/sqlite3.o src/sqlite3.c
+$(OBJSQLITE3): $(SQLITE3)
+	gcc -o $(OBJSQLITE3) -c $(SQLITE3)
 
 clean:
 	rm -rf /build/program bin/*.o
