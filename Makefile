@@ -15,7 +15,7 @@ OBJSQLITE3 = bin/sqlite3.o
 
 
 $(EXE): $(OBJMAIN) $(OBJUSER) $(OBJSQL) $(OBJSQLITE3) 
-	gcc -o $(EXE) $(OBJMAIN) $(OBJUSER) $(OBJSQL) $(OBJSQLITE3) 
+	gcc -o $(EXE) $(OBJMAIN) $(OBJUSER) $(OBJSQL) $(OBJSQLITE3) -lsqlite3
 
 Directories:
 	mkdir -p bin build
