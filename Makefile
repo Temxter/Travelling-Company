@@ -3,10 +3,10 @@
 EXE = build/program
 OBJMAIN = bin/main.o
 OBJUSER = bin/user.o
-OBJSQL = bin/sql_commands.o
+OBJSQL = bin/SQL_commands.o
 MAIN = src/main.c
 USER = src/user.c
-SQL = src/sql_commands.c
+SQL = src/SQL_commands.c
 SQLITE3 = src/sqlite3.c
 OBJSQLITE3 = bin/sqlite3.o
 
