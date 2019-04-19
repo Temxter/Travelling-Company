@@ -15,7 +15,7 @@ OBJSQLITE3 = bin/sqlite3.o
 
 
 $(EXE): $(OBJMAIN) $(OBJUSER) $(OBJSQL) $(OBJSQLITE3) 
-	gcc -std=c99 -o $(EXE) $(OBJMAIN) $(OBJUSER) $(OBJSQL) $(OBJSQLITE3) -lsqlite3 -ldl
+	gcc -std=c99 -o $(EXE) $(OBJMAIN) $(OBJUSER) $(OBJSQL) $(OBJSQLITE3) -lsqlite3 -ldl -lpthread
 
 Directories:
 	mkdir -p bin build
@@ -30,7 +30,7 @@ $(OBJSQL): $(SQL)
 	gcc -std=c99 -MD -o $(OBJSQL) -c $(SQL)
 
 $(OBJSQLITE3): $(SQLITE3)
-	gcc -std=c99 -MD -o $(OBJSQLITE3) -c $(SQLITE3)
+	gcc -std=c99 -MD -o $(OBJSQLITE3) -c $(SQLITE3) -lpthread -ldl 
 
 clean:
 	rm -rf /build/program bin/*.o
