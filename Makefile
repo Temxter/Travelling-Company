@@ -10,8 +10,8 @@ SQL = src/SQL_commands.c
 SQLITE3 = src/sqlite3.c
 OBJSQLITE3 = bin/sqlite3.o
 
-#execute: $(EXE)
-#	open $(EXE)
+execute: $(EXE)
+	open $(EXE)
 
 
 $(EXE): $(OBJMAIN) $(OBJUSER) $(OBJSQL) $(OBJSQLITE3) 
@@ -30,7 +30,7 @@ $(OBJSQL): $(SQL)
 	gcc -std=c99 -MD -o $(OBJSQL) -c $(SQL)
 
 $(OBJSQLITE3): $(SQLITE3)
-	gcc -std=c99 -MD -o $(OBJSQLITE3) -c $(SQLITE3) -lpthread -ldl 
+	gcc -std=c99 -MD -o $(OBJSQLITE3) -c $(SQLITE3)
 
 clean:
 	rm -rf /build/program bin/*.o
