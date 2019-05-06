@@ -1,5 +1,7 @@
 <h1>Travel Company</h1>
 
+Бюро путешествий осуществляет обслуживание экскурсионных маршрутов, используя для этой цели свои автобусы и экипажи, состоящие из трех человек, которые строго закреплены за своим автобусом. Экипаж, выполнивший заказ на обслуживание, получает 20 %, от стоимости обслуживания. Стоимость билета договорная и зависит от длины туристической трассы и числа участников экскурсии.
+
 <p>Проект на <a href="https://tauboard.com/v/07769abf3af0659a0fd7d2c2e4ba115d" rel="nofollow">TargetProcess</a></p>
 
 <p>Use case (3 diagrams: main and 2 additional) and file diagrams: <a href="https://drive.google.com/drive/folders/1Fufxly1jRak3hGE-XbWN0funxcqP34CF?usp=sharing" rel="nofollow">Google drive</a></p>
